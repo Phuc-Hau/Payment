@@ -2,7 +2,6 @@ package vn.com.smartpay.proccess;
 
 import vn.com.smartpay.model.ResponseData;
 import vn.com.smartpay.utils.JsonUtils;
-import vn.com.smartpay.utils.HashUtlis;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,12 +24,12 @@ public abstract class BaseSerlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String X_Request_ID=req.getHeader("X-Request-ID");
-        String X_Caller=req.getHeader("X-Caller");
-        String X_Timestamp=req.getHeader("X-Timestamp");
+        String xRequestID=req.getHeader("X-Request-ID");
+        String xCaller=req.getHeader("X-Caller");
+        String xTimestamp=req.getHeader("X-Timestamp");
 
         resp.setHeader("X-Request-ID","timestamp");
-        if( X_Request_ID.equals("timestamp") && X_Caller.equals("MIS") && X_Timestamp.equals("timestamp") ) {
+        if( xRequestID.equals("timestamp") && xCaller.equals("MIS") && xTimestamp.equals("timestamp") ) {
             Object data = proccess(req, resp);
             ResponseData writer = new ResponseData();
             writer.setCode(code);

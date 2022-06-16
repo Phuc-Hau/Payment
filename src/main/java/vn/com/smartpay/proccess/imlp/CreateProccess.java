@@ -70,8 +70,7 @@ public class CreateProccess extends BaseSerlet {
         sandbox.setAmount(1000);
         sandbox.setSignature(Signature);
 
-
-
+        
         String datatext = Base64.getEncoder().encodeToString(JsonUtils.toString(sandbox).getBytes());
 
         String uri ="https://sb-gateway.paysmart.com.vn/v1.0/order?data="+datatext;
@@ -86,7 +85,7 @@ public class CreateProccess extends BaseSerlet {
             System.out.println("Body: " + response.body());
 
         } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
+            code = "";
         }
         return Signature;
     }

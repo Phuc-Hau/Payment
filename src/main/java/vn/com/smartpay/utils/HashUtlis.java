@@ -20,7 +20,7 @@ public class HashUtlis {
             }
             tym = String.valueOf(hexString).toUpperCase();
         }catch (Exception e){
-            e.printStackTrace();
+            tym=null;
         }
 
         return tym;
