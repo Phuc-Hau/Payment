@@ -1,6 +1,5 @@
 package vn.com.smartpay.model;
 
-import com.google.gson.JsonArray;
 
 import java.util.List;
 
