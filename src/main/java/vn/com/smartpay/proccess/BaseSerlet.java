@@ -11,8 +11,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import vn.com.smartpay.utils.JsonUtils;
+
 public abstract class BaseSerlet extends HttpServlet {
 
+    public JsonUtils jsonUtils = new JsonUtils();
     public abstract Object proccess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException;
 
     @Override
@@ -49,6 +52,7 @@ public abstract class BaseSerlet extends HttpServlet {
         }
         return sb.toString();
     }
+
 
     protected void out (HttpServletResponse resp,String body) throws IOException {
         resp.setCharacterEncoding("UTF-8");
