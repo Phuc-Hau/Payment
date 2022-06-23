@@ -16,7 +16,6 @@ public class JettyServer {
         handler.addServletWithMapping(ReceivePaymentproccess.class,"/api/user/receivepayment");
         handler.addServletWithMapping(ImageFileProccess.class,"/api/imagefile");
 
-
         server.setHandler(handler);
         server.start();
         server.join();

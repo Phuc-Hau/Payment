@@ -1,4 +1,4 @@
-package vn.com.smartpay.model;
+package vn.com.smartpay.utils;
 
 public enum ErrorPro {
     OK,

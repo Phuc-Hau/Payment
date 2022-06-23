@@ -1,7 +1,7 @@
 package vn.com.smartpay.proccess.imlp;
 
 import org.eclipse.jetty.server.Request;
-import vn.com.smartpay.model.ErrorPro;
+import vn.com.smartpay.utils.ErrorPro;
 import vn.com.smartpay.model.FileUpload;
 import vn.com.smartpay.proccess.BaseSerlet;
 
