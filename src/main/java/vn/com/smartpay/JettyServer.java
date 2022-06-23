@@ -15,7 +15,6 @@ public class JettyServer {
         handler.addServletWithMapping(CreateProccess.class,"/api/user/createusers");
         handler.addServletWithMapping(ReceivePaymentproccess.class,"/api/user/receivepayment");
         handler.addServletWithMapping(ImageFileProccess.class,"/api/imagefile");
-        handler.addServletWithMapping(ReceivePaymentproccess.class,"/api/user/receivepayment");
 
         server.setHandler(handler);
         server.start();
