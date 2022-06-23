@@ -5,6 +5,7 @@ import org.eclipse.jetty.servlet.ServletHandler;
 import vn.com.smartpay.proccess.imlp.CreateProccess;
 import vn.com.smartpay.proccess.imlp.ImageFileProccess;
 import vn.com.smartpay.proccess.imlp.ReceivePaymentproccess;
+import vn.com.smartpay.proccess.imlp.ReceivePaymentproccess;
 
 public class JettyServer {
     public static void main(String[] args) throws Exception {
@@ -14,6 +15,7 @@ public class JettyServer {
         handler.addServletWithMapping(CreateProccess.class,"/api/user/createusers");
         handler.addServletWithMapping(ReceivePaymentproccess.class,"/api/user/receivepayment");
         handler.addServletWithMapping(ImageFileProccess.class,"/api/imagefile");
+        handler.addServletWithMapping(ReceivePaymentproccess.class,"/api/user/receivepayment");
 
         server.setHandler(handler);
         server.start();
