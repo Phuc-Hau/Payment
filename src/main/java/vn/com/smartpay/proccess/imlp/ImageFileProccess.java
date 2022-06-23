@@ -6,7 +6,6 @@ import vn.com.smartpay.model.FileUpload;
 import vn.com.smartpay.proccess.BaseSerlet;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.FileImageOutputStream;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
