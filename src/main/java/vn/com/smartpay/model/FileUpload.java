@@ -1,22 +1,26 @@
 package vn.com.smartpay.model;
 
-public class FileUpload {
-    private String fileName;
-    private String contentType;
+import java.util.List;
 
-    public String getFileName() {
+public class FileUpload {
+    private int amount;
+    private List<String> fileName;
+
+
+
+    public List<String> getFileName() {
         return fileName;
     }
 
-    public void setFileName(String fileName) {
+    public void setFileName(List<String> fileName) {
         this.fileName = fileName;
     }
 
-    public String getContentType() {
-        return contentType;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setContentType(String contentType) {
-        this.contentType = contentType;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

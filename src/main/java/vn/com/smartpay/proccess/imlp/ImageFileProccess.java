@@ -13,41 +13,45 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ImageFileProccess extends BaseSerlet {
 
-    private static final String UPLOAD_PATH = System.getProperty("user.dir")+"\\file\\";
+    private static final String UPLOAD_PATH = System.getProperty("user.dir") + "\\file\\";
+
     @Override
     public Object proccess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //TODO body
-        MultipartConfigElement multipartConfigElement= new MultipartConfigElement("");
+        MultipartConfigElement multipartConfigElement = new MultipartConfigElement("");
         req.setAttribute(Request.MULTIPART_CONFIG_ELEMENT, multipartConfigElement);
 
-        Part part = req.getPart("file");
+//        Part part = req.getPart("file");
 
-        File  dir =new File("file");
-        if(!dir.exists()) {
+        File dir = new File("file");
+        if (!dir.exists()) {
             dir.mkdirs();
         }
 
-        FileUpload fileUpload=null;
+        FileUpload fileUpload = null;
+        List<String> name = new ArrayList<>();
+        for (Part parts : req.getParts()) {
+            try (InputStream is = parts.getInputStream()) {
 
-        try {
-            String fileName = part.getSubmittedFileName();
+                String fileName = parts.getSubmittedFileName();
+                if (fileName != null) {
+                    BufferedImage bi = ImageIO.read(is);
+                    ImageIO.write(bi, "png", new File(UPLOAD_PATH + fileName));
+                }
 
-            InputStream is= part.getInputStream();
-            BufferedImage bi = ImageIO.read(is);
-            ImageIO.write(bi, "png", new File(UPLOAD_PATH+fileName));
-
-            fileUpload = new FileUpload();
-            fileUpload.setFileName(part.getSubmittedFileName());
-            fileUpload.setContentType(part.getContentType());
-
-            code = ErrorPro.OK.name();
-        }catch (Exception e){
-            code = ErrorPro.Fall.name();
+                name.add(fileName);
+                code = ErrorPro.OK.name();
+            }
         }
+        fileUpload = new FileUpload();
+        fileUpload.setFileName(name);
+        fileUpload.setAmount(req.getParts().size());
 
         //TODO out
         return fileUpload;

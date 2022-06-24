@@ -11,8 +11,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import vn.com.smartpay.utils.JsonUtils;
-
 public abstract class BaseSerlet extends HttpServlet {
 
     public JsonUtils jsonUtils = new JsonUtils();
