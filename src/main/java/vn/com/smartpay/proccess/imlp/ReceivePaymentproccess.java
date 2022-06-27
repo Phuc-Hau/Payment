@@ -99,4 +99,9 @@ public class ReceivePaymentproccess extends BaseSerlet {
         RequestPaymentData requestPaymentData= jsonUtils.toJson(result, RequestPaymentData.class);
         return requestPaymentData;
     }
+
+    @Override
+    public Object get(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        return null;
+    }
 }

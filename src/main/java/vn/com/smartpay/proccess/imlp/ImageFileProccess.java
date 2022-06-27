@@ -19,7 +19,6 @@ import java.util.List;
 
 public class ImageFileProccess extends BaseSerlet {
 
-    private static final String UPLOAD_PATH = System.getProperty("user.dir") + "\\file\\";
 
     @Override
     public Object proccess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -55,6 +54,11 @@ public class ImageFileProccess extends BaseSerlet {
 
         //TODO out
         return fileUpload;
+    }
+
+    @Override
+    public Object get(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        return null;
     }
 
 }

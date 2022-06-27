@@ -89,4 +89,9 @@ public class CreateProccess extends BaseSerlet {
         }
         return Signature;
     }
+
+    @Override
+    public Object get(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        return null;
+    }
 }
