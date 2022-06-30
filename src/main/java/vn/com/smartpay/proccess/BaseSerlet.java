@@ -2,7 +2,6 @@ package vn.com.smartpay.proccess;
 
 import vn.com.smartpay.model.ResponseData;
 import vn.com.smartpay.utils.JsonUtils;
-
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +42,7 @@ public abstract class BaseSerlet extends HttpServlet {
             Object data = proccess(req, resp);
             ResponseData writer = new ResponseData();
             writer.setCode(code);
+            writer.setData(data);
             out(resp, JsonUtils.toString(writer));
         }
     }
@@ -71,11 +71,11 @@ public abstract class BaseSerlet extends HttpServlet {
     }
 
     protected void outImage (HttpServletResponse resp, File file) throws IOException {
-        resp.setContentType("image/jpeg");
-
+        resp.setContentType("image/png");
         BufferedImage bi = ImageIO.read(file);
         OutputStream out = resp.getOutputStream();
-        ImageIO.write(bi, "jpg", out);
+
+        ImageIO.write(bi, "png", out);
         out.close();
     }
 }

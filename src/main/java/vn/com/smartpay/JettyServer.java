@@ -7,7 +7,6 @@ import vn.com.smartpay.proccess.imlp.GetImageFileProccess;
 import vn.com.smartpay.proccess.imlp.ImageFileProccess;
 import vn.com.smartpay.proccess.imlp.ReceivePaymentproccess;
 
-
 public class JettyServer {
     public static void main(String[] args) throws Exception {
         Server server = new Server(8080);

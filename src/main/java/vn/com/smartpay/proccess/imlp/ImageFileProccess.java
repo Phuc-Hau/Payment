@@ -51,7 +51,6 @@ public class ImageFileProccess extends BaseSerlet {
         }
         fileUpload = new FileUpload();
         fileUpload.setFileName(name);
-        fileUpload.setAmount(req.getParts().size());
 
         //TODO out
         return fileUpload;

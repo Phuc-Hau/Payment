@@ -6,14 +6,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.example</groupId>
     <artifactId>Project-Payment</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
 
+
     <properties>
-        <cometd-version>7.0.6</cometd-version>
         <jetty-version>11.0.8</jetty-version>
     </properties>
-
     <build>
         <defaultGoal>install</defaultGoal>
         <plugins>
@@ -27,17 +26,18 @@
                 </configuration>
             </plugin>
             <plugin>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.2.3</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
                 <configuration>
-                    <overlays>
-                        <overlay/>
-                        <overlay>
-                            <groupId>org.cometd.javascript</groupId>
-                            <artifactId>cometd-javascript-dojo</artifactId>
-                        </overlay>
-                    </overlays>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>vn.com.smartpay.JettyServer</mainClass>
+                        </manifest>
+                    </archive>
                 </configuration>
+
             </plugin>
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
@@ -47,8 +47,18 @@
                     <webApp>
                         <contextPath>/Project-Payment</contextPath>
                     </webApp>
+
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
@@ -59,28 +69,17 @@
             <artifactId>jetty-server</artifactId>
             <version>9.4.44.v20210927</version>
         </dependency>
-
-
-
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-webapp</artifactId>
+            <artifactId>jetty-servlet</artifactId>
             <version>9.4.44.v20210927</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.10</version>
-        </dependency>
-
 
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.9.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>

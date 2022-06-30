@@ -1,6 +1,5 @@
 package vn.com.smartpay.proccess.imlp;
 
-import vn.com.smartpay.model.FileUpload;
 import vn.com.smartpay.proccess.BaseSerlet;
 import vn.com.smartpay.utils.ErrorPro;
 
